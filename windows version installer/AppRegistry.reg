@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; ====================================================
+; 应用程序初始注册表配置 (Application Registry Settings)
+; ====================================================
+; 注意：这是一个用于演示和初始化的标准注册表模板。
+; 它会在当前用户的 Software 目录下创建一个专属项。
+
+[HKEY_CURRENT_USER\Software\MyApplication]
+"Installed"=dword:00000001
+"Version"="1.0.0"
+"Language"="zh-CN"
+"InitializeOnStart"="True"
+"Environment"="Production"

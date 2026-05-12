@@ -1,0 +1,48 @@
+name: page_client
+description: an api tookit
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.4.0
+  http: ^1.1.0
+  # flutter_markdown: ^0.7.2
+  flutter_markdown_plus: ^1.0.6
+  shared_preferences: ^2.5.5
+  web_socket_channel: ^3.0.3
+  sqflite: ^2.3.0    # SQLite 核心驱动
+  path: ^1.8.3       # 路径处理工具
+  image_picker: ^1.0.7  # 🌟 用于相册/相机选择
+  http_parser: ^4.0.2   # 🌟 用于 Multipart 上传时指定 MediaType
+  sqflite_common_ffi: ^2.4.0+3
+  sqlite3_flutter_libs: ^0.5.0
+  webview_flutter: ^4.10.0
+  url_launcher: ^6.3.2
+  webview_windows: ^0.4.0
+  url_launcher_windows: ^3.1.0
+
+  xml: ^6.5.0
+  markdown: ^7.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+# dependency_overrides:
+#   shared_preferences_android: ^2.4.23
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app_icon.png"
+  min_sdk_android: 21 # android 最小支持
+
+flutter:
+  uses-material-design: true
