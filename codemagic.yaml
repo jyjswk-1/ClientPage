@@ -1,0 +1,29 @@
+workflows:
+  ios-unsigned-workflow:
+    name: iOS Unsigned Build (Direct IPA)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: default
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: flutter pub get
+        
+      - name: Build iOS (Unsigned)
+        # 强制 Flutter 编译 Release 版本，并且明确声明跳过代码签名
+        script: flutter build ios --release --no-codesign
+        
+      - name: Package .app into .ipa (Auto Wrapper)
+        # 这就是替代你手动新建 Payload 文件夹的自动化脚本
+        script: |
+          cd build/ios/iphoneos
+          mkdir -p Payload
+          mv Runner.app Payload/
+          # 压缩并直接命名为你需要的 page_client.ipa
+          zip -q -r page_client.ipa Payload 
+          
+    artifacts:
+      # 告诉 Codemagic 把生成的这个 .ipa 文件展示在下载区
+      - build/ios/iphoneos/page_client.ipa
